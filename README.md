@@ -1,4 +1,4 @@
-## <img src="logo.png" width="60" /> **Financial Econometrics: R code for Tutorial**
+## <img src="logo.png" width="80" /> **Financial Econometrics: R code for Tutorial**
 
 Link: Karlsruher Institut für Technologie (KIT), [Lehrstuhl für Ökonometrie und Statistik (STAT)](http://statistik.econ.kit.edu/index.php)
 
