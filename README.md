@@ -8,17 +8,16 @@ __Overview:__
 
 __Course Outline:__
 1. Financial Returns: Basic Concepts and Properties
-_ 1.1. Introduction
-_ 1.2. Financial Time Series
-_ 1.3. Distributional Properties of Financial Returns
+- [x] 1.1. Introduction
+- [x] 1.2. Financial Time Series
+- [ ] 1.3. Distributional Properties of Financial Returns
 
 2. Time Series Foundations and Price Dynamics
-2.1. Foundations in Time Series Analysis
-2.2. Financial Prices and Returns
+- [ ] 2.1. Foundations in Time Series Analysis
+- [ ] 2.2. Financial Prices and Returns
 
 3. Modelling Time-Varying Volatility
-3.1. Introduction
-3.2. GARCH Models
-3.3. Stochastic Volatility Models
-3.4. Realized Volatility
-
+- [ ] 3.1. Introduction
+- [ ] 3.2. GARCH Models
+- [ ] 3.3. Stochastic Volatility Models
+- [ ] 3.4. Realized Volatility
