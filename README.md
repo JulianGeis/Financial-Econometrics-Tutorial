@@ -8,7 +8,7 @@ __Overview:__
 - Problem Set 2: R code
 - Problem Set 3: Notes and R code
 
-__Course Outline:__
+__Task List of the Tutorial:__
 1. Financial Returns: Basic Concepts and Properties
 - [x] 1.1. Introduction
 - [x] 1.2. Financial Time Series
