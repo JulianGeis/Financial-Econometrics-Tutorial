@@ -4,7 +4,9 @@ Link: Karlsruher Institut für Technologie (KIT), [Lehrstuhl für Ökonometrie u
 
 __Overview:__
 - Problem Set 1: [R code](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/ps1.R)
+  - Last updated: 03.05.2018
 - Problem Set 2: R code
+- Problem Set 3: Notes and R code
 
 __Course Outline:__
 1. Financial Returns: Basic Concepts and Properties
