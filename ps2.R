@@ -1,3 +1,8 @@
+#######################
+#### Problem Set 2 ####
+#######################
+
+# Problem 3
 rm(list=ls(all=T))
 graphics.off()
 
@@ -96,7 +101,7 @@ tdata = rt(100, df=3)
 #log-normal distribution
 lndata = rlnorm(100)
 #skewed normal distribution
-skew.norm.data = rsn(100,shape=2)
+#skew.norm.data = rsn(100,shape=2)
 
 
 
