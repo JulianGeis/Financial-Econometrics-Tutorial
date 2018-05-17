@@ -137,6 +137,37 @@ my.panel = function(...){
 plot(MSFTSP500.prices, panel=my.panel, lwd=2)
 plot(MSFTSP500.prices, plot.type = "single", lty=c("dashed","solid"))
 
+#16.05
+#(d): use PerformanceAnalytics package
+chart.TimeSeries(MSFT.ret)
+
+#(e)
+set.seed(123)
+gwn = rnorm(length(MSFT.ret),mean=mean(MSFT.ret), sd=sd(MSFT.ret) )
+gwn.zoo = zoo(gwn, index(MSFT.ret))
+
+hist(gwn.zoo, col="blue")
+hist(MSFT.ret,probability = T)
+par(mfrow=c(1,1))
+hist(MSFT.ret,probability = T)
+hist(MSFT.ret,probability = T)
+
+MSFT.hist = hist(MSFT.ret, plot=T, breaks = 15)
+
+####density
+MSFT.density=density(MSFT.ret)
+MSFT.density
+plot(MSFT.density,.type="l")
+
+hist(MSFT.ret, probability = T,ylim=c(0,6))
+points(MSFT.density,col="green")
+
+#JB test
+jarque.bera.test(MSFT.ret)
+
+
+
+
 
 
 
