@@ -23,3 +23,7 @@ __Task List of the Tutorial:__
 - [ ] 3.2. GARCH Models
 - [ ] 3.3. Stochastic Volatility Models
 - [ ] 3.4. Realized Volatility
+
+4. Estimating and Testing Asset Pricing Models
+
+5. Modelling High-Frequency Financial Data
