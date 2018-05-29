@@ -6,6 +6,7 @@ __Overview:__
 - Problem Set 1: [R code](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/ps1.R)
   - Last updated: 17.05.2018
 - Problem Set 2: [R code](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/ps2.R)
+  - Last updated: 29.05.2018
 - Problem Set 3: Notes and R code
 
 __Task List of the Tutorial:__
