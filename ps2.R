@@ -2,6 +2,7 @@ rm(list=ls(all=T))
 graphics.off()
 library(tseries)
 library(zoo)
+library(PerformanceAnalytics)
 MSFT.prices = get.hist.quote(instrument = "msft",start = "1998-01-01",
                              end="2012-05-31",quote="AdjClose",
                              provider = "yahoo", origin="1970-01-01",
@@ -154,11 +155,12 @@ qqnorm(skew.norm.data)
 qqline(skew.norm.data)
 
 # (g)
+ks.test(MSFT.ret.mat, gwn)
+ks.test(MSFT.ret.mat, tdata)
+ks.test(MSFT.ret.mat, lndata)
+ks.test(MSFT.ret.mat, skew.norm.data)
 
-
-
-
-
+ks.test(MSFT.ret.mat, SP500.ret)
 
 
 
