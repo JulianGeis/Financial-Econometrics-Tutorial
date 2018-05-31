@@ -6,8 +6,8 @@ __Overview:__
 - Problem Set 1: [R code](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/ps1.R)
   - Last updated: 17.05.2018
 - Problem Set 2: [R code](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/ps2.R)
-  - Last updated: 29.05.2018
-- Problem Set 3: Notes and R code
+  - Last updated: 30.05.2018
+- Problem Set 3: [Answer of P4](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/P4_answer.pdf)
 
 __Task List of the Tutorial:__
 1. Financial Returns: Basic Concepts and Properties
@@ -16,7 +16,7 @@ __Task List of the Tutorial:__
 - [x] 1.3. Distributional Properties of Financial Returns
 
 2. Time Series Foundations and Price Dynamics
-- [ ] 2.1. Foundations in Time Series Analysis
+- [x] 2.1. Foundations in Time Series Analysis
 - [ ] 2.2. Financial Prices and Returns
 
 3. Modelling Time-Varying Volatility
