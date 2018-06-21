@@ -4,6 +4,7 @@ graphics.off()
 
 ##Problem 6
 ##(a)
+set.seed(143)
 sim.ar1<-arima.sim(list(ar=c(0.2)),n=1000)
 sim.ar2<-arima.sim(list(ar=c(0.9)),n=1000)
 
