@@ -9,6 +9,7 @@ __Overview:__
   - Last updated: 30.05.2018
 - Problem Set 3: [Answer of P4](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/P4_answer.pdf), P5
 - Problem Set 4: [R code of P6](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/ps4.R), P7
+  - P6: [Q&A of ACF](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/P6_acf.pdf) 
 - Problem Set 5: P8, P9
 - Problem Set 6: P10, P11
 
