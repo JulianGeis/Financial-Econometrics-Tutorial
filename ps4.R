@@ -299,7 +299,7 @@ lines(fore.arima$pred-2*fore.arima$se,col="red",lty=3)
 
 # RW estimation
 e = rnorm(outt)
-naive = RD[int:(length(RD)-1)]+ cumsum(e) # naive benchmark
+naive = RD[int]+ cumsum(e) # naive benchmark
 
 
 
