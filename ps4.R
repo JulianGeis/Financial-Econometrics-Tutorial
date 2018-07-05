@@ -98,7 +98,7 @@ points(acf.arma1$acf, col=2)
 ##PS4: Problem 7
 ##(a)
 rm(list=ls(all=TRUE))
-setwd("C:/Users/Schienle/Desktop/R") # setting working direcctory
+#setwd() # setting working direcctory
 getwd() # checking working directory
 
 library(tseries)
@@ -152,6 +152,10 @@ ALL.ret = merge(BMWm.ret, DAX.ret)
 colnames(ALL.ret)
 head(ALL.ret, n=3)
 
+plot(ALL.ret, plot.type="single", col=c("blue","red"), lty=1:2, lwd=2)
+legend(x="topleft", legend=c("BMW","DAX"), col=c("blue","red"), lty=1:2)
+
+##(b): dynamic properties
 # convert zoo data to matrix data for non time series analysis
 # many R functions do not have methods implemented for zoo objects
 # and results may be unpredictable
@@ -172,11 +176,6 @@ DAX.ret.mat = coredata(DAX.ret)
 colnames(DAX.ret.mat) = "DAX"
 rownames(DAX.ret.mat) = as.character(index(DAX.ret))
 
-plot(ALL.ret, plot.type="single", col=c("blue","red"), lty=1:2, lwd=2)
-legend(x="topleft", legend=c("BMW","DAX"), col=c("blue","red"), lty=1:2)
-
-
-##(b): dynamic properties
 Box.test(BMWd.ret.mat, lag = 1, type = c("Box-Pierce", "Ljung-Box"))
 par(mfrow=c(2,1))
 acf(BMWd.ret.mat, na.action = na.contiguous)
@@ -202,24 +201,26 @@ pacf(DAX.ret.mat)
 ##(c)
 #require(graphics)
 #take BMW as example
+arima(BMWm.ret.mat,order=c(1,0,0))$aic
 BIC(arima(BMWm.ret.mat,order=c(1,0,0)))
-BIC(arima(BMWm.ret.mat,order=c(1,0,1)))
-BIC(arima(BMWm.ret.mat,order=c(0,0,1)))
-BIC(arima(BMWm.ret.mat,order=c(0,0,0)))
+
+jarque.bera.test(BMWm.ret.mat)
+set.seed(111)
+tdata=rt(171,df=3)
+ks.test(BMWm.ret.mat, tdata)#not t-distributed
 
 par(mfrow=c(2,1))
 acf(BMWm.ret.mat^2)
 pacf(BMWm.ret.mat^2)
 
-arima(BMWm.ret.mat,order=c(1,0,1))$aic
-BMWfit<-arima(BMWm.ret.mat,order=c(1,0,1))
+BMWfit<-arima(BMWm.ret.mat,order=c(0,0,1))
 BMWfit$coef
 par(mfrow=c(1,1))
 ts.plot(BMWfit$residuals)
 abline(h=0)
 BMWres<-BMWfit$residuals[-1] # discart first observation
 
-Box.test(BMWres,lag=1)
+Box.test(BMWres,lag=1)#cannot reject H0
 BMWfit$aic
 
 par(mfrow=c(2,1))
@@ -234,10 +235,9 @@ qqline(BMWres, col = "red3", lwd = 3) # adding line for the qq plot
 
 jarque.bera.test(BMWres)#not normal
 
-tsdiag(BMWfit)
-
 #DAX
-DAXfit<-arima(DAX.ret.mat,order=c(1,0,1))
+BIC(arima(DAX.ret.mat,order=c(1,0,0)))
+DAXfit<-arima(DAX.ret.mat,order=c(0,0,1))
 DAXfit$coef
 ts.plot(DAXfit$residuals)
 DAXres<- DAXfit$residuals[-1] # discart first observation: 0-lag correlation, is always 1...
@@ -260,18 +260,18 @@ tsdiag(DAXfit)# summarizes main parts of the above
 
 ### automatic model selection
 # simple AR 
-BMWd.ar = ar(BMWd.ret.mat, aic = TRUE, order.max = 10)
+BMWd.ar = ar(na.omit(BMWd.ret.mat), aic = TRUE, order.max = 10)
 BMWw.ar = ar(BMWw.ret.mat, aic = TRUE, order.max = 10)
 BMWm.ar = ar(BMWm.ret.mat, aic = TRUE, order.max = 10)
 DAX.ar = ar(DAX.ret.mat, aic = TRUE, order.max = 10)
 
 # set 
 RD<- BMWm.ret.mat
-
+#RD<- DAX.ret.mat
 # compare aic and bic for different arma models
 min.ic = Inf
 my.model = c(0,0)
-for(i in 0:3)
+for(i in 0:3){
   for(j in 0:3){
     res = arima(RD, order = c(i, 0, j), method = "ML")
     if(res$loglik)
@@ -279,8 +279,11 @@ for(i in 0:3)
     bic = -2 * res$loglik + (length(res$coef) + 1) * log(length(RD))
     if(aic < min.ic){min.ic = aic; my.model = c(i, j)}
     # if(bic < min.ic){min.ic = bic; my.model = c(i, j)}
-    print(paste(i, ", ", j, " / (3, 3)", ", ML = ", round(res$loglik, digits = 4), ", AIC = ", round(aic, digits = 4), ", BIC = ", round(aic, digits = 4), sep = ""))
+    print(paste(i, ", ", j, " / (3, 3)", ", ML = ", round(res$loglik, digits = 4), 
+                ", AIC = ", round(aic, digits = 4), 
+                ", BIC = ", round(BIC(res), digits=4), sep = ""))
   }
+}
 
 
 ##(d): forecast comparison
@@ -289,7 +292,7 @@ for(i in 0:3)
 int<- length(RD)-10 
 outt<- 10
 
-est.run = arima(RD[1:int], order = c(1, 0, 1), method = "ML") # in-sample model estimation
+est.run = arima(RD[1:int], order = c(0, 0, 1), method = "ML") # in-sample model estimation
 fore.arima = predict(est.run, n.ahead = outt) # out-of sample forecast
 
 plot(RD, type="l")
@@ -308,10 +311,10 @@ future= RD[(int+1): length(RD)]
 # Root Mean Square Forecast Error (RMSFE)
 sqrt(mean((fore.arima$pred - future)^2))
 sqrt(mean((naive - future)^2))
-# Median Absolute Forecast Error (MAFE)
+# Median Absolute Forecast Error (MDAFE)
 median(abs(fore.arima$pred - future))
 median(abs(naive - future))
-# Median Absolute Forecast Error (MDAFE)
+# Mean Absolute Forecast Error (MAFE)
 mean(abs(fore.arima$pred - future))
 mean(abs(naive - future))
 
