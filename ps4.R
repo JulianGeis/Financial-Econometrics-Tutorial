@@ -266,8 +266,8 @@ BMWm.ar = ar(BMWm.ret.mat, aic = TRUE, order.max = 10)
 DAX.ar = ar(DAX.ret.mat, aic = TRUE, order.max = 10)
 
 # set 
-RD<- BMWm.ret.mat
-#RD<- DAX.ret.mat
+#RD<- BMWm.ret.mat
+RD<- DAX.ret.mat
 # compare aic and bic for different arma models
 min.ic = Inf
 my.model = c(0,0)
@@ -276,12 +276,12 @@ for(i in 0:3){
     res = arima(RD, order = c(i, 0, j), method = "ML")
     if(res$loglik)
       aic = -2 * res$loglik + 2 * (length(res$coef) + 1) # res$aic
-    bic = -2 * res$loglik + (length(res$coef) + 1) * log(length(RD))
+      bic = -2 * res$loglik + (length(res$coef) + 1) * log(length(RD))
     if(aic < min.ic){min.ic = aic; my.model = c(i, j)}
     # if(bic < min.ic){min.ic = bic; my.model = c(i, j)}
     print(paste(i, ", ", j, " / (3, 3)", ", ML = ", round(res$loglik, digits = 4), 
                 ", AIC = ", round(aic, digits = 4), 
-                ", BIC = ", round(BIC(res), digits=4), sep = ""))
+                ", BIC = ", round(bic, digits=4), sep = ""))
   }
 }
 
