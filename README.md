@@ -26,6 +26,5 @@ __Task List of the Tutorial:__
 3. Modelling Time-Varying Volatility
 - [x] 3.1. Introduction
 - [x] 3.2. GARCH Models
-- [ ] 3.3. Stochastic Volatility Models
-- [ ] 3.4. Realized Volatility
+
 
