@@ -11,6 +11,8 @@ __Overview:__
 - Problem Set 4: [R code of P6, P7](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/ps4.R)
   - P6: [Q&A of ACF](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/P6_acf.pdf) 
 - Problem Set 5: P8, P9
+  - P9: [R function Lo.Mac and Boot.test](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/VR-test.pdf)
+  - P9: [Dataset: exrates.csv](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/exrates.csv)
 - Problem Set 6: P10, P11
 
 __Task List of the Tutorial:__
