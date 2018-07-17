@@ -21,14 +21,11 @@ __Task List of the Tutorial:__
 
 2. Time Series Foundations and Price Dynamics
 - [x] 2.1. Foundations in Time Series Analysis
-- [ ] 2.2. Financial Prices and Returns
+- [x] 2.2. Financial Prices and Returns
 
 3. Modelling Time-Varying Volatility
-- [ ] 3.1. Introduction
-- [ ] 3.2. GARCH Models
+- [x] 3.1. Introduction
+- [x] 3.2. GARCH Models
 - [ ] 3.3. Stochastic Volatility Models
 - [ ] 3.4. Realized Volatility
 
-4. Estimating and Testing Asset Pricing Models
-
-5. Modelling High-Frequency Financial Data
