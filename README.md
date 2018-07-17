@@ -13,7 +13,7 @@ __Overview:__
 - Problem Set 5: P8, P9
   - P9: [R function Lo.Mac and Boot.test](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/VR-test.pdf)
   - P9: [Dataset: exrates.csv](https://github.com/KITMetrics/Financial-Econometrics-Tutorial/blob/master/exrates.csv)
-- Problem Set 6: P10, P11
+- Problem Set 6: P10
 
 __Task List of the Tutorial:__
 1. Financial Returns: Basic Concepts and Properties
